@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons'
 import COLORS from '../constants/colors'
 import { tempData } from '../tempData'
 
-const AddListModal = ({ closeMode }) => {
+const AddListModal = ({ closeMode, addList }) => {
 
     const backgroundColor = ['#5CD859', '#24A6D9', '#595BD9', '#8022D9', '#D159D8', '#D85963', '#D88559']
 
@@ -13,7 +13,7 @@ const AddListModal = ({ closeMode }) => {
         name: '' || 'New',
         color: backgroundColor[0]
     })
-    console.log(todo);
+    // console.log(todo);
 
     // renderColor component
     const RenderColor = () => (
@@ -32,10 +32,15 @@ const AddListModal = ({ closeMode }) => {
 
     // fx: Create todo list
     const createTodo = () => {
-        tempData.push({
+        // tempData.push({
+        //     name: todo.name,
+        //     color: todo.color,
+        //     todos: []
+        // })
+
+        addList({
             name: todo.name,
-            color: todo.color,
-            todos: []
+            color: todo.color
         })
 
         // clear state

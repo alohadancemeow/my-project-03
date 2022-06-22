@@ -2,6 +2,7 @@
 
 export const tempData = [
     {
+        id: 1,
         name: 'Plan a Trip',
         color: '#24A6D9',
         todos: [
@@ -12,6 +13,7 @@ export const tempData = [
         ]
     },
     {
+        id: 2,
         name: 'Plan a Trip 2',
         color: 'orange',
         todos: [
@@ -22,6 +24,7 @@ export const tempData = [
         ]
     },
     {
+        id: 3,
         name: 'Plan a Trip 3',
         color: '#595BD9',
         todos: [
