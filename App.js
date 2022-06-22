@@ -1,15 +1,31 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native'
-import React from 'react'
+import { StyleSheet, Alert, Text, View, TouchableOpacity, FlatList, Modal } from 'react-native'
+import React, { useState } from 'react'
 import { AntDesign } from '@expo/vector-icons'
 
 import COLORS from './constants/colors'
 import { tempData } from './tempData'
 
 import TodoList from './components/TodoList'
+import AddListModal from './components/AddListModal'
 
 const App = () => {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
+
+      <Modal
+        animationType='slide'
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(false);
+        }}
+      >
+        <AddListModal closeMode={() => setModalVisible(false)} />
+      </Modal>
+
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.divdier} />
         <Text style={styles.title}>
@@ -19,7 +35,10 @@ const App = () => {
       </View>
 
       <View style={{ marginVertical: 48 }}>
-        <TouchableOpacity style={styles.addList}>
+        <TouchableOpacity
+          style={styles.addList}
+          onPress={() => setModalVisible(true)}
+        >
           <AntDesign name='plus' size={16} color={COLORS.blue} />
         </TouchableOpacity>
 
